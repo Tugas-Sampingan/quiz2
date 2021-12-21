@@ -8,10 +8,9 @@ function registrasi($data) {
 	$nama = $data["nama"];
 	$email= strtolower(stripslashes($data["email"]));
 	$password = mysqli_real_escape_string($conn, $data["password"]);
-	$no_hp = $data["no_hp"];
 
 	// tambahkan user baru ke database
-	mysqli_query($conn, "INSERT INTO user VALUES ('', '$nama', '$email', '$password', '$no_hp')");
+	mysqli_query($conn, "INSERT INTO user VALUES ('', '$nama', '$email', '$password')");
 
 	//return mysqli_affected_rows($conn);
 
