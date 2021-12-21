@@ -22,7 +22,7 @@
                 </ul>
                 <form class="d-flex">
                     <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="login.php">Sign In</a>
-                    <a class="btn btn-primary border-0" style="background-color: #696969 ;">Sign Up</a>
+                    <a class="btn btn-primary border-0" style="background-color: #696969 ;" href="registrasi.php">Sign Up</a>
                 </form>
             </div>
         </div>
