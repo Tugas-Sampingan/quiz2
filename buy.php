@@ -26,7 +26,7 @@
 
         <div class="col-lg-7">
 
-          <form action="" method="post">
+          <form action="crud/buatPesanan.php" method="post">
             <div class="form-group row">
               <label for="nama" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
@@ -51,15 +51,19 @@
             <div class="form-group row">
               <label for="address" class="col-sm-2 col-form-label">Glasses Type</label>
               <div class="col-sm-10">
-                <textarea name="address" class="form-control" placeholder="Type your glasses with the lenses!"></textarea>
+                <select class="form-select" aria-label="Default select example" name="tipe_barang">
+                  <option selected>Pilih Barang</option>
+                  <option value="daridatabase">daridatabase</option>
+                </select>
               </div>
             </div>
             <br>
-            <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm2 pt-0">Jumlah</legend>
-              <div class="form-check"></div>
-              <input type="number" min="1" max="5" name="Jumlah">
-            </fieldset>
+            <div class="form-group row">
+              <label for="address" class="col-sm-2 col-form-label">Jumlah</label>
+              <div class="col-sm-10">
+                <input type="number" min="1" max="5" name="jumlah" name="jumlah">
+              </div>
+            </div>
             <br>
             <div class="form-group row">
               <label for="payment" class="col-sm-2 col-form-label">Payment Method</label>
@@ -71,14 +75,17 @@
               </div>
             </div>
             <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+              <div class="col-sm-12">
+                <center>
+                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="pesan">Pesan Sekarang</button>
+                </center>
               </div>
             </div>
           </form>
 
         </div>
   </section>
+
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -95,9 +102,6 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
-  </div>
   </div>
 
   <!-- footer -->
