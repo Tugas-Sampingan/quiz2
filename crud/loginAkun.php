@@ -1,6 +1,6 @@
 <?php
 include "conn.php";
-
+session_start();
 
 $email = $_POST["email"];
 $password = $_POST["password"];
@@ -18,10 +18,12 @@ if (isset($_POST['login-user'])) {
         if ($row['email'] == $email) {
             $checkEmail = $row["email"];
             if ($row['password'] == $password) {
-                header("location: http://localhost/quiz2");
+                $_SESSION['username'] = $row['nama_user'];
+                header("location: http://localhost/quiz2/home.php");
                 break;
             } else {
                 header("location: http://localhost/quiz2/login.php");
+                break;
             }
             break;
         }
@@ -31,10 +33,12 @@ if (isset($_POST['login-user'])) {
         if ($row['email'] == $email) {
             $checkEmail = $row["email"];
             if ($row['password'] == $password) {
-                header("location: http://localhost/quiz2");
+                $_SESSION['username'] = $row['nama_user'];
+                header("location: http://localhost/quiz2/home.php");
                 break;
             } else {
                 header("location: http://localhost/quiz2/login.php");
+                break;
             }
             break;
         }

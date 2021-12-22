@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +16,6 @@
   <script src="js/popper.min.js"></script>
 
   <?php include 'navbar.php' ?>
-
   <section id="home">
     <div class="container-fullwidth">
       <br><br><br>
