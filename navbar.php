@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: darksalmon;">
         <div class="container-fluid">
@@ -21,8 +24,20 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="login.php">Sign In</a>
-                    <a class="btn btn-primary border-0" style="background-color: #696969 ;" href="registrasi.php">Sign Up</a>
+                    <?php if (isset($_SESSION['username'])) {
+                    ?>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="home.php"><?php echo $_SESSION['username'] ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="crud/logoutAkun.php">Logout</a>
+                            </li>
+                        </ul>
+                    <?php } else { ?>
+                        <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="login.php">Sign In</a>
+                        <a class="btn btn-primary border-0" style="background-color: #696969 ;" href="registrasi.php">Sign Up</a>
+                    <?php } ?>
                 </form>
             </div>
         </div>
