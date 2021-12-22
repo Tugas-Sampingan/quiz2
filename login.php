@@ -13,25 +13,24 @@
   <script src="js/popper.min.js"></script>
   <br><br><br>
   <center>
-
-    <form>
+    <form method="post" action="crud/loginAkun.php">
       <table>
         <h1 style="text-align: center;"><b>LOGIN TO OZARK GLASSES STORE</b></h1>
         <tr>
-          <td><label for="inputEmail3" class="col-sm-2 col-form-label">Email</label></td>
-          <td><input type="email" class="form-control" id="inputEmail3"></td>
+          <td><label for="email" class="col-sm-2 col-form-label">Email</label></td>
+          <td><input type="email" class="form-control" id="email" name="email"></td>
         </tr>
         <tr>
-          <td><label for="inputPassword3" class="col-sm-2 col-form-label">Password</label></td>
-          <td> <input type="password" class="form-control" id="inputPassword3"></td>
+          <td><label for="password" class="col-sm-2 col-form-label">Password</label></td>
+          <td> <input type="password" class="form-control" id="password" name="password"></td>
         </tr>
 
         <tr>
-          <td><br><a class="btn btn-primary mx-auto" href="home.php">LOG IN USER</a></td>
-          <td><br><a class="btn btn-primary mx-auto" href="admin.php">LOG IN ADMIN</a></td>
+          <td><br><button class="btn btn-primary mx-auto" type="submit" name="login-user">LOG IN USER</button></td>
+          <td><br><button class="btn btn-primary mx-auto" type="submit" name="login-admin">LOG IN ADMIN</button></td>
         </tr>
 
       </table>
-
+    </form>
   </center>
 </body>
