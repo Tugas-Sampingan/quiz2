@@ -31,20 +31,22 @@ $selected = mysqli_query($conn, "SELECT * FROM databarang");
               <img src="katalog/<?= $row["gambar"]; ?>" class="card-img-top" alt="p1" height="360px" width="530px">
               <div class="card-body">
                 <h4 class="card-title" style="text-align: center;"> <?= $row["nama_barang"]; ?></h4>
-                <p class="card-text">Kode: <?= $row["kode_barang"]; ?> Harga: Rp <?= $row["harga"]; ?>,- <br>
-                  <!-- Deskripsi -->
-                  
-                  <?php $arr = explode ("; ",$row['detail']); ?>
-                  <ul type="disc">
-                    <h6>Detail Size: </h6>
-                    <li>Lebar lensa: <?= $arr[0]; ?></li>
-                    <li>Lebar nosepad (jarak antara lensa kanan kiri) : <?= $arr[1]; ?></li>
-                    <li>Panjang gagang : <?= $arr[2]; ?></li>
-                    <li>Lebar seluruh lensa (ujung lensa kanan ke kiri): <?= $arr[3]; ?></li>
-                    <li>Tinggi frame: <?= $arr[4]; ?></li>
-                    <li>material: <?= $arr[5]; ?></li>
-                  </ul>
+                <p class="card-text">Kode: <?= $row["kode_barang"]; ?> <br> 
+                  Harga: Rp <?= $row["harga"]; ?>,-  <br>
                 </p>
+
+                <p><?= $row["deskripsi"]; ?></p>
+
+                <?php $arr = explode ("; ",$row['detail']); ?>
+                <h6>Detail Size: </h6>
+                <ul type="disc">
+                  <li>Lebar lensa: <?= $arr[0]; ?></li>
+                  <li>Lebar nosepad (jarak antara lensa kanan kiri) : <?= $arr[1]; ?></li>
+                  <li>Panjang gagang : <?= $arr[2]; ?></li>
+                  <li>Lebar seluruh lensa (ujung lensa kanan ke kiri): <?= $arr[3]; ?></li>
+                  <li>Tinggi frame: <?= $arr[4]; ?></li>
+                  <li>material: <?= $arr[5]; ?></li>
+                </ul>
               </div>
             </div>
           </div>
