@@ -14,34 +14,86 @@ if (isset($_COOKIE['login'])) {
     }
 }
 
-//ntar kasih section supaya tau mana admin mana user
+if (isset($_SESSION['login'])) {
+    header("location: http://localhost/quiz2/home.php");
+    exit;
+}
+
+// if (isset($_POST["login-user"])) {
+//     $email = $_POST["email"];
+//     $password = $_POST["password"];
+
+//     $result = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
+
+//     // cek email
+//     if (mysqli_num_rows($result) === 1) {
+
+//         $row = mysqli_fetch_assoc($result);
+//         if (password_verify($password, $row["password"])) {
+//             // set session
+//             $_SESSION["login"] = true;
+
+//             // cek remember me
+//             if (isset($_POST["remember"])) {
+//                 // buat cookie
+//                 setcookie('login', true, time()+60); //1 menit
+//             }
+
+//             header("location: index.php");
+//             exit;
+//         }
+//     }
+
+// }
+
+
 if (isset($_POST['login-user'])) {
-    $tabel = mysqli_query($conn, "SELECT * FROM user");
-    $numRow = mysqli_num_rows($tabel);
-    foreach ($tabel as $row) :
-        if ($row['email'] == $email) {
-            $checkEmail = $row["email"];
-            if ($row['password'] == $password) {
-                $_SESSION['username'] = $row['nama_user'];
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
 
-                // set session
-                $_SESSION["login"] = true;
+    // cek email
+    if (mysqli_num_rows($result) === 1) {
 
-                // cek remember me
-                if (isset($_POST["remember"])) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            // set session
+            $_SESSION["login"] = true;
+
+            // cek remember me
+            if (isset($_POST["remember"])) {
                 // buat cookie
-                setcookie('login', true, time()+600); //10 menit
+                setcookie('login', true, time()+60); //1 menit
             }
 
             header("location: http://localhost/quiz2/home.php");
-            break;
-        } else {
-            header("location: http://localhost/quiz2/login.php");
-            break;
+            exit;
         }
-        break;
     }
-endforeach;
+
+    // $tabel = mysqli_query($conn, "SELECT * FROM user");
+    // $numRow = mysqli_num_rows($tabel);
+    // foreach ($tabel as $row) :
+    //     if ($row['email'] == $email) {
+    //         $checkEmail = $row["email"];
+    //         if ($row['password'] == $password) {
+    //             $_SESSION['username'] = $row['nama_user'];
+
+    //             // set session
+    //             $_SESSION["login"] = true;
+    //             // cek remember me
+    //             if (isset($_POST["remember"])) {
+    //                 // buat cookie
+    //                 setcookie('login', true, time()+600); //10 menit
+    //                 header("location: http://localhost/quiz2/home.php");
+    //             }
+
+    //             break; 
+    //         } else {
+    //             header("location: http://localhost/quiz2/login.php");
+    //             break;
+    //         }
+    //         break;
+    //     }
+    // endforeach;
 } else if (isset($_POST['login-admin'])) {
     $tabel = mysqli_query($conn, "SELECT * FROM admin");
     $numRow = mysqli_num_rows($tabel);
