@@ -17,17 +17,20 @@
                 <h1 class="text-center">Registrasi</h1>
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Firenze" name="nama" require>
+                    <input type="text" class="form-control" id="nama" placeholder="Firenze" name="nama" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="firenze@gmail.com" name="email" require>
+                    <input type="email" class="form-control" id="email" placeholder="firenze@gmail.com" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="text" class="form-control" id="password" placeholder="" name="password" require>
+                    <input type="text" class="form-control" id="password" placeholder="" name="password" required>
                 </div>
-                <center><button type="submit" value="daftar" name="daftar" class="btn btn-primary mt-4 px-5">Daftar</button></center>
+                <center>
+                    <button type="submit" value="daftar" name="daftar" class="btn btn-primary mt-4 px-5">Daftar</button>
+                    <a href="login.php" type="submit" value="login" name="login" class="btn btn-primary mt-4 px-5">Login</a>
+                </center>
             </form>
         </div>
     </div>

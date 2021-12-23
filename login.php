@@ -1,3 +1,18 @@
+<?php
+session_start();
+// cek cookie
+if (isset($_COOKIE['login'])) {
+  if($_COOKIE['login'] == 'true'){
+    $_SESSION['login'] = true;
+  }
+} 
+    // cek remember me
+if (isset($_POST["remember"])) {
+  //buat cookie
+  setcookie('login', 'true', time()+600); //10 menit
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +29,9 @@
   <br><br><br>
   <center>
     <form method="post" action="crud/loginAkun.php">
+      <h1 style="text-align: center;"><b>LOGIN TO OZARK GLASSES STORE</b></h1>
+      <br><br>
       <table>
-        <h1 style="text-align: center;"><b>LOGIN TO OZARK GLASSES STORE</b></h1>
         <tr>
           <td><label for="email" class="col-sm-2 col-form-label">Email</label></td>
           <td><input type="email" class="form-control" id="email" name="email"></td>
@@ -31,13 +47,19 @@
             <label class="form-check-label" for="remember">Remember Me</label>
           </td>
         </tr>
-
-        <tr>
-          <td><br><button class="btn btn-primary mx-auto" type="submit" name="login-user">LOG IN USER</button></td>
-          <td><br><button class="btn btn-primary mx-auto" type="submit" name="login-admin">LOG IN ADMIN</button></td>
-        </tr>
-
       </table>
+
+      <center><br><br>
+        <button class="btn btn-primary mx-auto" type="submit" name="login-user">LOG IN USER</button></td>
+        <button class="btn btn-primary mx-auto" type="submit" name="login-admin">LOG IN ADMIN</button>
+      </center>
+
+      <div class="center">
+        <br>
+        <p style="text-align: center;">Anda Belum Punya Akun?
+          <a href="registrasi.php">Register here.</a>
+        </p>
+      </div>
     </form>
   </center>
 </body>
