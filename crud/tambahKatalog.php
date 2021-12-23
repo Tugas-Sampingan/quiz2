@@ -16,7 +16,7 @@ $d5 = $_POST["material"];
 $detail = $d0."; ".$d1."; ".$d2."; ".$d3."; ".$d4."; ".$d5;
 
 if (isset($_POST['simpan'])) {
-    $dir = 'katalog/';
+    $dir = '../katalog/';
     $filename = $_FILES['foto']['name'];
     move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $filename);
     mysqli_query($conn, "INSERT INTO databarang VALUES('$kode', '$nama', '$harga', '$deskripsi', '$detail', '$filename')");

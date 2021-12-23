@@ -14,19 +14,19 @@ $d5 = $_POST["material"];
 
 $detail = $d0 . "; " . $d1 . "; " . $d2 . "; " . $d3 . "; " . $d4 . "; " . $d5;
 
-$gambar = $_FILES['foto']['name'];
+if (isset($_POST['edit'])) {
+    $dir = '../katalog/';
+    $filename = $_FILES['foto']['name'];
+    move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $filename);
+    mysqli_query($conn, "UPDATE databarang SET 
+        kode_barang = '$kode',
+        nama_barang = '$nama',
+        harga = '$harga',
+        deskripsi = '$deskripsi',
+        detail = '$detail', 
+        gambar = '$filename'
 
-$query = "UPDATE buku_table SET 
-    kode_barang = '$kode',
-    nama_barang = '$nama',
-    harga = '$harga',
-    deskripsi = '$deskripsi',
-    detail = '$detail',
-    gambar = '$gambar',
+        WHERE kode_barang = '$kode'");
 
-    WHERE kode_barang = '$kode'
-";
-$result = mysqli_query($conn, $query);
-if ($result) {
-    header("location:../katalog.php?");
-}
+    header("location: ../katalog.php");
+} 
