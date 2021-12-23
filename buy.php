@@ -1,3 +1,10 @@
+<?php
+session_start();
+include 'crud/conn.php';
+$selected = mysqli_query($conn, "SELECT * FROM pemesanan");
+$result = mysqli_query($conn, "SELECT * FROM databarang");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,77 +20,136 @@
   <script src="js/popper.min.js"></script>
   <?php include 'navbar.php' ?>
 
+
   <section id="buy">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col text-center" style="margin-top: 60px;">
-          <br>
-          <h2 style="text-align: center;">GO CHECKOUT YOUR GLASSES NOW!</h2>
+    <?php if (isset($_SESSION['username'])) : ?>
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col text-center" style="margin-top: 60px;">
+            <br>
+            <h2 style="text-align: center;">GO CHECKOUT YOUR GLASSES NOW!</h2>
+          </div>
         </div>
-      </div>
 
-      <div class="row justify-content-center" style="margin-bottom: 120px;">
+        <div class="row justify-content-center" style="margin-bottom: 120px;">
 
-        <div class="col-lg-7">
+          <div class="col-lg-7">
 
-          <form action="crud/buatPesanan.php" method="post">
-            <div class="form-group row">
-              <label for="nama" class="col-sm-2 col-form-label">Name</label>
-              <div class="col-sm-10">
-                <input type="text" name="nama" class="form-control" placeholder="Your Name">
+            <form action="crud/buatPesanan.php" method="post">
+              <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" name="nama" class="form-control" placeholder="Your Name">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text" name="email" class="form-control" placeholder="Your Email">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                  <textarea name="address" class="form-control" placeholder="Type your address here"></textarea>
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Glasses Type</label>
+                <div class="col-sm-10">
+                  <select class="form-select" aria-label="Default select example" name="tipe_barang">
+                    <option selected>Pilih Barang</option>
+                    <?php
+                    foreach ($result as $row) : ?>
+                      <option value="<?= $row['nama_barang'] ?>"><?= $row['nama_barang'] ?></option>
+                    <?php
+                    endforeach;
+                    ?>
+                  </select>
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="harga" class="col-sm-2 col-form-label">Harga</label>
+                <div class="col-sm-10">
+                  <input name="harga" class="form-control" value="" readonly>
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Jumlah</label>
+                <div class="col-sm-10">
+                  <input type="number" min="1" max="5" name="jumlah" name="jumlah">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="payment" class="col-sm-2 col-form-label">Payment Method</label>
+                <div class="col-sm-10">
+                  <select name="payment" class="form-control">
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <center>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="pesan">Pesan Sekarang</button>
+                  </center>
+                </div>
+              </div>
+            </form>
+          </div>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['useradmin'])) { ?>
+          <div class="container">
+            <div class="row mb-4">
+              <div class="col text-center" style="margin-top: 60px;">
+                <br>
+                <h2 style="text-align: center;">Pesanan</h2>
               </div>
             </div>
-            <br>
-            <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="text" name="email" class="form-control" placeholder="Your Email">
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label for="address" class="col-sm-2 col-form-label">Address</label>
-              <div class="col-sm-10">
-                <textarea name="address" class="form-control" placeholder="Type your address here"></textarea>
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label for="address" class="col-sm-2 col-form-label">Glasses Type</label>
-              <div class="col-sm-10">
-                <select class="form-select" aria-label="Default select example" name="tipe_barang">
-                  <option selected>Pilih Barang</option>
-                  <option value="daridatabase">daridatabase</option>
-                </select>
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label for="address" class="col-sm-2 col-form-label">Jumlah</label>
-              <div class="col-sm-10">
-                <input type="number" min="1" max="5" name="jumlah" name="jumlah">
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label for="payment" class="col-sm-2 col-form-label">Payment Method</label>
-              <div class="col-sm-10">
-                <select name="payment" class="form-control">
-                  <option value="Credit Card">Credit Card</option>
-                  <option value="Bank Transfer">Bank Transfer</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <center>
-                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" name="pesan">Pesan Sekarang</button>
-                </center>
-              </div>
-            </div>
-          </form>
 
-        </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Nama Pemesan</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Alamat</th>
+                  <th scope="col">Nama Barang</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Jumlah</th>
+                  <th scope="col">Pembayaran</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1;
+                foreach ($selected as $row) { ?>
+                  <tr>
+                    <th scope="row"><?= $i ?></th>
+                    <td><?= $row['nama_pemesan'] ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td><?= $row['alamat'] ?></td>
+                    <td><?= $row['nama_barang'] ?></td>
+                    <td><?= $row['harga'] ?></td>
+                    <td><?= $row['jumlah'] ?></td>
+                    <td><?= $row['pembayaran'] ?></td>
+                    <td><a href="crud/hapusPesanan.php?id=<?= $row['id'] ?>" class="btn btn-danger">Hapus</a></td>
+                  </tr>
+                <?php
+                  $i++;
+                }
+                ?>
+              </tbody>
+            </table>
+
+          <?php } ?>
   </section>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -10,5 +10,5 @@ $creditCard = $_POST["payment"];
 
 if (isset($_POST['pesan'])) {
     mysqli_query($conn, "INSERT INTO pemesanan VALUES('','$nama','$email','$alamat','$tipe','$jumlah','$creditCard')");
-    echo $nama . $email . $alamat . $tipe . $jumlah . $creditCard;
+    header("location: ../buy.php");
 }
