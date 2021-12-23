@@ -1,8 +1,8 @@
 <?php
 include "conn.php";
 
-$kode = $_POST['kode'];
-$nama = $_POST['nama'];
+$kode = strtoupper($_POST['kode']);
+$nama = strtoupper($_POST['nama']);
 $deskripsi = $_POST['deskripsi'];
 $harga = $_POST['harga'];
 $d0 = $_POST['lebar_lensa'];
