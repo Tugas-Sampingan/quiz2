@@ -32,7 +32,15 @@ include 'modal.php';
                                 <a class="nav-link active" aria-current="page" href="home.php"><?php echo $_SESSION['username'] ?></a>
                             </li>
                             <li class="nav-item">
-                                <button id="tambah" type="button" class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" data-toggle="modal" data-target="#m_tambah">Tambah</button>
+                                <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="crud/logoutAkun.php">Logout</a>
+                            </li>
+                        </ul>
+                    <?php } else if (isset($_SESSION['useradmin'])) { ?>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="home.php"><?php echo $_SESSION['useradmin'] ?></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="crud/logoutAkun.php">Logout</a>
                             </li>
                         </ul>

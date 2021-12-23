@@ -1,7 +1,6 @@
 <?php
 include "conn.php";
 
-
 $kode = $_POST['kode'];
 $nama = $_POST['nama'];
 $deskripsi = $_POST['deskripsi'];
@@ -13,7 +12,7 @@ $d3 = $_POST['lebar_seluruh_lensa'];
 $d4 = $_POST['tinggi_frame'];
 $d5 = $_POST["material"];
 
-$detail = $d0."; ".$d1."; ".$d2."; ".$d3."; ".$d4."; ".$d5;
+$detail = $d0 . "; " . $d1 . "; " . $d2 . "; " . $d3 . "; " . $d4 . "; " . $d5;
 
 $gambar = $_FILES['foto']['name'];
 
