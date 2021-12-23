@@ -13,7 +13,7 @@ $d3 = $_POST['lebar_seluruh_lensa'];
 $d4 = $_POST['tinggi_frame'];
 $d5 = $_POST["material"];
 
-$detail = $d0.$d1.$d2.$d3.$d4.$d5;
+$detail = $d0."; ".$d1."; ".$d2."; ".$d3."; ".$d4."; ".$d5;
 
 $gambar = $_FILES['foto']['name'];
 
@@ -29,5 +29,5 @@ $query = "UPDATE buku_table SET
 ";
 $result = mysqli_query($conn, $query);
 if ($result) {
-    header("location:../katalog.php");
+    header("location:../katalog.php?");
 }
