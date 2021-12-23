@@ -22,7 +22,14 @@
         </tr>
         <tr>
           <td><label for="password" class="col-sm-2 col-form-label">Password</label></td>
-          <td> <input type="password" class="form-control" id="password" name="password"></td>
+          <td><input type="password" class="form-control" id="password" name="password"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+            <label class="form-check-label" for="remember">Remember Me</label>
+          </td>
         </tr>
 
         <tr>
