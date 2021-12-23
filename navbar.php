@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'modal.php';
 ?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: darksalmon;">
@@ -31,6 +32,7 @@ session_start();
                                 <a class="nav-link active" aria-current="page" href="home.php"><?php echo $_SESSION['username'] ?></a>
                             </li>
                             <li class="nav-item">
+                                <button id="tambah" type="button" class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" data-toggle="modal" data-target="#m_tambah">Tambah</button>
                                 <a class="btn btn-primary border-0" style="background-color:#696969 ; margin-right: 8px;" href="crud/logoutAkun.php">Logout</a>
                             </li>
                         </ul>
