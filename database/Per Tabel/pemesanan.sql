@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2021 at 07:39 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.3.33
+-- Waktu pembuatan: 29 Des 2021 pada 10.26
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemesanan`
+-- Struktur dari tabel `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -32,38 +32,54 @@ CREATE TABLE `pemesanan` (
   `nama_pemesan` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
-  `nama_barang` varchar(255) NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
   `harga` int(255) NOT NULL,
   `jumlah` int(255) NOT NULL,
   `pembayaran` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pemesanan`
+-- Dumping data untuk tabel `pemesanan`
 --
 
-INSERT INTO `pemesanan` (`id`, `nama_pemesan`, `email`, `alamat`, `nama_barang`, `harga`, `jumlah`, `pembayaran`) VALUES
-(4, 'Maulana Akbar Ramadhan', 'maulana261100@gmail.com', 'asds', 'ELENZE IN SQUARE', 100000, 1, 'Bank Transfer');
+INSERT INTO `pemesanan` (`id`, `nama_pemesan`, `email`, `alamat`, `kode_barang`, `harga`, `jumlah`, `pembayaran`) VALUES
+(1, 'Brilian', 'brilian@gmail.com', 'asds', 'ELENZE', 250000, 1, 'Bank Transfer'),
+(2, 'Bintang', 'bintang@gmail.com', 'Bandung', 'ELENZE', 250000, 1, 'Bank Transfer'),
+(3, 'Galang', 'galang@gmail.com', 'Jakarta', 'KALA', 100000, 1, 'Bank Transfer'),
+(4, 'Galang', 'galang@gmail.com', 'Jakarta', 'CHARIZ', 109000, 1, 'Bank Transfer'),
+(5, 'Dhan Maul', 'dhan@gmail.com', 'Sulawesi', 'AGNES', 110000, 1, 'Bank Transfer'),
+(6, 'Firenze', 'firenze@gmail.com', 'Tegal', 'AGNES', 110000, 1, 'Bank Transfer');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `pemesanan`
+-- Indeks untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kode_barang` (`kode_barang`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `pemesanan`
+-- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `pemesanan`
+--
+ALTER TABLE `pemesanan`
+  ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`kode_barang`) REFERENCES `databarang` (`kode_barang`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

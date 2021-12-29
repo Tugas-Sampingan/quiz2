@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Des 2021 pada 07.25
+-- Waktu pembuatan: 29 Des 2021 pada 10.26
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.26
 
@@ -39,7 +39,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama_user`, `email`, `password`) VALUES
-(1, 'Firenze', 'a@gmail.com', '123');
+(1, 'Firenze', 'firenze@gmail.com', '123'),
+(2, 'Brilian', 'brilian@gmail.com', '123'),
+(3, 'Bintang', 'bintang@gmail.com', '123'),
+(4, 'Galang', 'galang@gmail.com', '123'),
+(5, 'Dhan Maul', 'dhan@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -59,7 +63,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

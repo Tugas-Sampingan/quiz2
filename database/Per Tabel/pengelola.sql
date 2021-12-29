@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Des 2021 pada 07.24
+-- Waktu pembuatan: 29 Des 2021 pada 10.26
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.26
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Struktur dari tabel `pengelola`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `pengelola` (
   `id` int(20) NOT NULL,
   `nama_admin` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data untuk tabel `pengelola`
 --
 
-INSERT INTO `admin` (`id`, `nama_admin`, `email`, `password`) VALUES
+INSERT INTO `pengelola` (`id`, `nama_admin`, `email`, `password`) VALUES
 (1, 'Admin', 'admin@gmail.com', 'admin');
 
 --
@@ -46,9 +46,9 @@ INSERT INTO `admin` (`id`, `nama_admin`, `email`, `password`) VALUES
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indeks untuk tabel `pengelola`
 --
-ALTER TABLE `admin`
+ALTER TABLE `pengelola`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,9 +56,9 @@ ALTER TABLE `admin`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT untuk tabel `pengelola`
 --
-ALTER TABLE `admin`
+ALTER TABLE `pengelola`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
