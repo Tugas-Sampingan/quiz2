@@ -125,7 +125,7 @@ $namaBarang;
                   <th scope="col">Nama Pemesan</th>
                   <th scope="col">Email</th>
                   <th scope="col">Alamat</th>
-                  <th scope="col">Nama Barang</th>
+                  <th scope="col">Kode Barang</th>
                   <th scope="col">Harga</th>
                   <th scope="col">Jumlah</th>
                   <th scope="col">Total</th>
@@ -141,7 +141,7 @@ $namaBarang;
                     <td><?= $row['nama_pemesan'] ?></td>
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['alamat'] ?></td>
-                    <td><?= $row['nama_barang'] ?></td>
+                    <td><?= $row['kode_barang'] ?></td>
                     <td><?= $row['harga'] ?></td>
                     <td><?= $row['jumlah'] ?></td>
                     <td><?= ($row['jumlah'] * $row['harga']) ?></td>
