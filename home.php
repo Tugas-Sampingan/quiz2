@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["login"])) {
-  header("location: login.php");
-  exit;
-}
 
-?> 
+setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

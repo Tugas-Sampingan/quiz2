@@ -4,6 +4,9 @@ include 'crud/conn.php';
 
 $selected = mysqli_query($conn, "SELECT * FROM databarang");
 
+
+setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+
 ?>
 <html lang="en">
 

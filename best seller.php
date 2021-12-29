@@ -1,3 +1,9 @@
+<?php
+
+setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

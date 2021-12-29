@@ -1,16 +1,11 @@
 <?php
 session_start();
 // cek cookie
-if (isset($_COOKIE['login'])) {
-  if($_COOKIE['login'] == 'true'){
-    $_SESSION['login'] = true;
-  }
-} 
-    // cek remember me
-if (isset($_POST["remember"])) {
-  //buat cookie
-  setcookie('login', 'true', time()+600); //10 menit
-}
+
+setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +38,7 @@ if (isset($_POST["remember"])) {
         <tr>
           <td></td>
           <td>
-            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+            <input type="checkbox" class="form-check-input" id="remember" name="remember" value="remember">
             <label class="form-check-label" for="remember">Remember Me</label>
           </td>
         </tr>

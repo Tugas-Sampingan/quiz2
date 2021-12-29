@@ -16,8 +16,12 @@ if (isset($_POST['login-user'])) {
             if ($row['password'] == $password) {
                 $_SESSION['username'] = $row['nama_user'];
 
-                // set session
-                $_SESSION["login"] = true;
+                // cek remember me
+                if (isset($_POST["remember"])) {
+                    //buat cookie
+                    $_SESSION["login"] = true;
+                    setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+                }
 
                 header("location: http://localhost/quiz2/home.php");
                 break;
@@ -40,8 +44,12 @@ if (isset($_POST['login-admin'])) {
             if ($row['password'] == $password) {
                 $_SESSION['useradmin'] = $row['nama_admin'];
 
-                // set session
-                $_SESSION["login"] = true;
+                //chek remeber me
+                if (isset($_POST["remember"])) {
+                    //buat cookie
+                    $_SESSION["login"] = true;
+                    setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+                }
 
                 header("location: http://localhost/quiz2/home.php");
                 break;
