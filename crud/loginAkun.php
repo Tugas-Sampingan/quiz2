@@ -15,7 +15,6 @@ if (isset($_POST['login-user'])) {
     $row = mysqli_fetch_array($tabel);
     echo $row;
     foreach ($tabel as $row) :
-
         if ($row['email'] == $email) {
             $checkEmail = $row["email"];
             if ($row['password'] == $password) {
