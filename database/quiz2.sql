@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2021 pada 10.25
+-- Waktu pembuatan: 29 Des 2021 pada 10.51
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.26
 
@@ -69,11 +69,11 @@ CREATE TABLE `pemesanan` (
 
 INSERT INTO `pemesanan` (`id`, `nama_pemesan`, `email`, `alamat`, `kode_barang`, `harga`, `jumlah`, `pembayaran`) VALUES
 (1, 'Brilian', 'brilian@gmail.com', 'asds', 'ELENZE', 250000, 1, 'Bank Transfer'),
-(2, 'Bintang', 'bintang@gmail.com', 'Bandung', 'ELENZE', 250000, 1, 'Bank Transfer'),
-(3, 'Galang', 'galang@gmail.com', 'Jakarta', 'KALA', 100000, 1, 'Bank Transfer'),
-(4, 'Galang', 'galang@gmail.com', 'Jakarta', 'CHARIZ', 109000, 1, 'Bank Transfer'),
+(2, 'Bintang', 'bintang@gmail.com', 'Bandung', 'ELENZE', 250000, 3, 'Bank Transfer'),
+(3, 'Galang', 'galang@gmail.com', 'Jakarta', 'KALA', 100000, 100, 'Bank Transfer'),
+(4, 'Galang', 'galang@gmail.com', 'Jakarta', 'CHARIZ', 109000, 5, 'Bank Transfer'),
 (5, 'Dhan Maul', 'dhan@gmail.com', 'Sulawesi', 'AGNES', 110000, 1, 'Bank Transfer'),
-(6, 'Firenze', 'firenze@gmail.com', 'Tegal', 'AGNES', 110000, 1, 'Bank Transfer');
+(6, 'Firenze', 'firenze@gmail.com', 'Tegal', 'AGNES', 110000, 10, 'Bank Transfer');
 
 -- --------------------------------------------------------
 
@@ -116,8 +116,8 @@ INSERT INTO `user` (`id`, `nama_user`, `email`, `password`) VALUES
 (1, 'Firenze', 'firenze@gmail.com', '123'),
 (2, 'Brilian', 'brilian@gmail.com', '123'),
 (3, 'Bintang', 'bintang@gmail.com', '123'),
-(4, 'Galang', 'galang@gmail.com', '123'),
-(5, 'Dhan Maul', 'dhan@gmail.com', '123');
+(4, 'Dhan Maul', 'dhan@gmail.com', '123'),
+(5, 'Galang', 'galang@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -168,7 +168,7 @@ ALTER TABLE `pengelola`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
