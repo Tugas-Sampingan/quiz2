@@ -7,10 +7,15 @@ $password = $_POST["password"];
 
 $checkEmail;
 
+
+
 //ntar kasih section supaya tau mana admin mana user
 if (isset($_POST['login-user'])) {
-    $tabel = mysqli_query($conn, "SELECT * FROM user");
+    $tabel = mysqli_query($conn, "SELECT * FROM user where email = '$email'");
+    $row = mysqli_fetch_array($tabel);
+    echo $row;
     foreach ($tabel as $row) :
+
         if ($row['email'] == $email) {
             $checkEmail = $row["email"];
             if ($row['password'] == $password) {
@@ -29,9 +34,6 @@ if (isset($_POST['login-user'])) {
                 header("location: http://localhost/quiz2/login.php");
                 break;
             }
-            break;
-        } else {
-            header("location: http://localhost/quiz2/login.php");
             break;
         }
     endforeach;
@@ -57,9 +59,6 @@ if (isset($_POST['login-admin'])) {
                 header("location: http://localhost/quiz2/login.php");
                 break;
             }
-            break;
-        } else {
-            header("location: http://localhost/quiz2/login.php");
             break;
         }
     endforeach;

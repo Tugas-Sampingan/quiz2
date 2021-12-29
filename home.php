@@ -34,34 +34,34 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
           <h3 class="lead">Serta menyediakan juga berbagai macam sunglasses yang trendy dan nyaman.</h3>
         </div>
       </div>
-    </section>
-    <br><br>
+  </section>
+  <br><br>
 
-    <section id="bestseller" style="background-color:darksalmon ;">
-      <div class="container">
-        <div class="row mb-4">
-          <div class="col text-center" style="margin-top: 60px;">
-            <h1 style="text-align: center;">Best Seller Glasses Of The Year</h1>
-          </div>
+  <section id="bestseller" style="background-color:darksalmon ;">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col text-center" style="margin-top: 60px;">
+          <h1 style="text-align: center;">Best Seller Glasses Of The Year</h1>
         </div>
-        <div class="row">
-          <?php 
-          $i = 0;
-          foreach ($best as $row) : 
-            $i++;
-            ?>
-            <div class="col-md mb-4">
-              <div class="card" style="margin-bottom: 50px;">
-                <img class="card-img-top" src="katalog/<?= $row["gambar"]; ?>" alt="kcmt1" style="display: block;">
-                <div class="card-body">
-                  <h3 style="text-align: center;"><?= $row["nama_barang"]; ?></h3>
-                  <p class="card-text" style="text-align: justify;"><?= $row["deskripsi"]; ?>
+      </div>
+      <div class="row">
+        <?php
+        $i = 0;
+        foreach ($best as $row) :
+          $i++;
+        ?>
+          <div class="col-md mb-4">
+            <div class="card" style="margin-bottom: 50px;">
+              <img class="card-img-top" src="katalog/<?= $row["gambar"]; ?>" alt="kcmt1" style="display: block;">
+              <div class="card-body">
+                <h3 style="text-align: center;"><?= $row["nama_barang"]; ?></h3>
+                <p class="card-text" style="text-align: justify;"><?= $row["deskripsi"]; ?>
                 </p>
               </div>
             </div>
           </div>
-          <?php 
-          if ($i==3) {
+        <?php
+          if ($i == 3) {
             exit();
           }
         endforeach; ?>
