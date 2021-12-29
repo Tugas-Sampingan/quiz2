@@ -6,6 +6,7 @@ $result = mysqli_query($conn, "SELECT * FROM databarang");
 
 setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
 
+$namaBarang;
 
 ?>
 <!DOCTYPE html>
@@ -63,11 +64,11 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
               <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Glasses Type</label>
                 <div class="col-sm-10">
-                  <select class="form-select" aria-label="Default select example" name="tipe_barang">
+                  <select onchange="val()" class="form-select" id="tipe_barang" aria-label="Default select example" name="tipe_barang">
                     <option selected>Pilih Barang</option>
                     <?php
                     foreach ($result as $row) : ?>
-                      <option value="<?= $row['nama_barang'] ?>"><?= $row['nama_barang'] ?></option>
+                      <option value="<?= $row['kode_barang'] ?>"><?= $row['kode_barang'] ?></option>
                     <?php
                     endforeach;
                     ?>
@@ -78,7 +79,7 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
               <div class="form-group row">
                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
-                  <input name="harga" class="form-control" value="" readonly>
+                  <input id="harga_barang" name="harga" class="form-control" value="" readonly>
                 </div>
               </div>
               <br>
@@ -127,6 +128,7 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
                   <th scope="col">Nama Barang</th>
                   <th scope="col">Harga</th>
                   <th scope="col">Jumlah</th>
+                  <th scope="col">Total</th>
                   <th scope="col">Pembayaran</th>
                   <th scope="col">Aksi</th>
                 </tr>
@@ -142,6 +144,7 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
                     <td><?= $row['nama_barang'] ?></td>
                     <td><?= $row['harga'] ?></td>
                     <td><?= $row['jumlah'] ?></td>
+                    <td><?= ($row['jumlah'] * $row['harga']) ?></td>
                     <td><?= $row['pembayaran'] ?></td>
                     <td><a href="crud/hapusPesanan.php?id=<?= $row['id'] ?>" class="btn btn-danger">Hapus</a></td>
                   </tr>
@@ -172,7 +175,6 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
       </div>
     </div>
   </div>
-
   <!-- footer -->
   <footer class="mt-4">
     <div class="container">
@@ -183,6 +185,24 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
       </div>
     </div>
   </footer>
+
 </body>
+<script>
+  function val() {
+    tipeBarang = document.getElementById("tipe_barang").value;
+    if (tipeBarang == "AGNES") {
+      document.getElementById("harga_barang").value = 110000;
+    } else if (tipeBarang == "CHARIZ") {
+      document.getElementById("harga_barang").value = 110000;
+    } else if (tipeBarang == "ELENZE") {
+      document.getElementById("harga_barang").value = 250000;
+    } else if (tipeBarang == "KALA") {
+      document.getElementById("harga_barang").value = 100000;
+    } else {
+      document.getElementById("harga_barang").value = 90000;
+    }
+
+  }
+</script>
 
 </html>
