@@ -1,9 +1,8 @@
 <?php
 session_start();
 include 'crud/conn.php';
-$selected = mysqli_query($conn, "SELECT * FROM pemesanan");
+$resul1 = mysqli_query($conn, "SELECT * FROM pemesanan");
 $result = mysqli_query($conn, "SELECT * FROM databarang");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,7 +129,7 @@ $result = mysqli_query($conn, "SELECT * FROM databarang");
               </thead>
               <tbody>
                 <?php $i = 1;
-                foreach ($selected as $row) { ?>
+                foreach ($resul1 as $row) { ?>
                   <tr>
                     <th scope="row"><?= $i ?></th>
                     <td><?= $row['nama_pemesan'] ?></td>
