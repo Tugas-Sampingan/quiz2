@@ -38,7 +38,7 @@ if (isset($_POST['login-admin'])) {
         if ($row['email'] == $email) {
             $checkEmail = $row["email"];
             if ($row['password'] == $password) {
-                $_SESSION['username'] = $row['nama_admin'];
+                $_SESSION['useradmin'] = $row['nama_admin'];
 
                 // set session
                 $_SESSION["login"] = true;
