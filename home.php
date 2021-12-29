@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+include 'crud/conn.php';
+$selected = mysqli_query($conn, "SELECT * FROM databarang");
 
 setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
 
@@ -46,37 +47,18 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
         </div>
       </div>
       <div class="row">
+        <?php foreach ($selected as $row) : ?>
         <div class="col-md mb-4">
           <div class="card" style="margin-bottom: 50px;">
-            <img class="card-img-top" src="https://www.optiktunggal.com/img/product/IMG_0146_copy.jpg" alt="kcmt1" style="display: block;">
+            <img class="card-img-top" src="katalog/<?= $row["gambar"]; ?>" alt="kcmt1" style="display: block;">
             <div class="card-body">
-              <h3 style="text-align: center;">AGNES B</h3>
-              <p class="card-text" style="text-align: justify;">Kacamata dengan frame bulat leopard yang trendy dan nyaman dipakai. Bisa Request lensa minus/plus/silinder</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md mb-4">
-          <div class="card" style="margin-bottom: 50px;">
-            <img class="card-img-top" src="https://www.optiktunggal.com/img/product/IMG_0254_copy1.jpg" alt="kcmt2">
-            <div class="card-body">
-              <h3 style="text-align: center;">RONA BLACK</h3>
-              <p class="card-text" style="text-align: justify;">Bentuk semi Cat eyes mungil ini bikin penampilan kamu semakin elegant dan kece bgt😍. Bisa Request lensa minus/plus/silinder</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md mb-4">
-          <div class="card" style="margin-bottom: 50px;">
-            <img class="card-img-top" src="https://www.optiktunggal.com/img/product/0RB4278__628211_000A.jpg" alt="kcmt3">
-            <div class="card-body">
-              <h3 style="text-align: center;">ELENZE IN SQUARE</h3>
-              <p class="card-text" style="text-align: justify;">Super stylish😎 cocok untuk nemenin liburan kamu jadi makin hype!
-                Unisex cewe cowo bisa pakai 😍. Kacamata sudah dilengkapi lensa anti UV!
+              <h3 style="text-align: center;"><?= $row["nama_barang"]; ?></h3>
+              <p class="card-text" style="text-align: justify;"><?= $row["deskripsi"]; ?>
               </p>
             </div>
           </div>
         </div>
+      <?php endforeach; ?>
       </div>
     </div>
   </section>

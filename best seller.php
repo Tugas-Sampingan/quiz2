@@ -1,5 +1,6 @@
 <?php
-
+include 'crud/conn.php';
+$selected = mysqli_query($conn, "SELECT * FROM databarang");
 setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
 
 
@@ -28,66 +29,28 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
         </div>
       </div>
       <div class="row">
+        <?php foreach ($selected as $row) : ?>
         <div class="col-md mb-4">
           <div class="card" style="margin-bottom: 50px;">
-            <img class="card-img-top" src="https://www.optiktunggal.com/img/product/IMG_0146_copy.jpg" alt="kcmt1" style="display: block;">
+            <img class="card-img-top" src="katalog/<?= $row["gambar"]; ?>" alt="kcmt1" style="display: block;">
             <div class="card-body">
-              <h3 style="text-align: center;">AGNES B</h3>
-              <p class="card-text" style="text-align: justify;">Kacamata dengan frame bulat leopard yang trendy dan nyaman dipakai. Bisa Request lensa minus/plus/silinder
+              <h3 style="text-align: center;"><?= $row["nama_barang"]; ?></h3>
+              <p class="card-text" style="text-align: justify;"><?= $row["deskripsi"]; ?>
+              <h6>Estimasi Detail Size</h6>
               <ul type="disc">
-                <h6>Estimasi Detail Size</h6>
-                <li>Lebar lensa: 5,3 cm</li>
-                <li>Lebar nosepad (jarak antara lensa kanan kiri) : 1,5 cm</li>
-                <li>Panjang gagang : 13,8 cm</li>
-                <li>Lebar seluruh lensa (ujung lensa kanan ke kiri): 12,1 cm</li>
-                <li>Tinggi frame: 4,8cm</li>
-                <li>material: plastik mix besi,Penyangga hidung bisa diatur</li>
+                <?php $arr = explode("; ", $row['detail']); ?>
+                <li>Lebar lensa: <?= $arr[0]; ?></li>
+                <li>Lebar nosepad (jarak antara lensa kanan kiri) : <?= $arr[1]; ?></li>
+                <li>Panjang gagang : <?= $arr[2]; ?></li>
+                <li>Lebar seluruh lensa (ujung lensa kanan ke kiri): <?= $arr[3]; ?></li>
+                <li>Tinggi frame: <?= $arr[4]; ?></li>
+                <li>material: <?= $arr[5]; ?></li>
               </ul>
               </p>
             </div>
           </div>
         </div>
-
-        <div class="col-md mb-4">
-          <div class="card" style="margin-bottom: 50px;">
-            <img class="card-img-top" src="https://www.optiktunggal.com/img/product/IMG_0254_copy1.jpg" alt="kcmt2">
-            <div class="card-body">
-              <h3 style="text-align: center;">RONA BLACK</h3>
-              <p class="card-text" style="text-align: justify;">Bentuk semi Cat eyes mungil ini bikin penampilan kamu semakin elegant dan kece bgt😍. Bisa Request lensa minus/plus/silinder
-              <ul type="disc">
-                <h6>Estimasi Detail Size </h6>
-                <li>Lebar lensa: 5,4cm</li>
-                <li>Lebar nosepad (jarak antara lensa kanan kiri) : 2cm</li>
-                <li>Panjang gagang : 14,2cm</li>
-                <li>Lebar seluruh lensa (ujung lensa kanan ke kiri): 12,8cm</li>
-                <li>Tinggi frame: 4,4cm</li>
-                <li>aterial: plastik mix besi,Penyangga hidung bisa diatur</li>
-              </ul>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md mb-4">
-          <div class="card" style="margin-bottom: 50px;">
-            <img class="card-img-top" src="https://www.optiktunggal.com/img/product/0RB4278__628211_000A.jpg" alt="kcmt3">
-            <div class="card-body">
-              <h3 style="text-align: center;">ELENZE IN SQUARE</h3>
-              <p class="card-text" style="text-align: justify;">Super stylish😎 cocok untuk nemenin liburan kamu jadi makin hype!
-                Unisex cewe cowo bisa pakai 😍. Kacamata sudah dilengkapi lensa anti UV!
-              <ul type="disc">
-                <h6>Estimasi Detail Size</h6>
-                <li>Lebar lensa: 6,4 cm</li>
-                <li>Lebar nosepad (jarak antara lensa kanan kiri) : 1,3 cm</li>
-                <li>Panjang gagang : 15,8 cm</li>
-                <li>Lebar seluruh lensa (ujung lensa kanan ke kiri): 14,1 cm</li>
-                <li>Tinggi frame: 5,4 cm</li>
-                <li>material: plastik mix besi,Penyangga hidung tidak bisa diatur</li>
-              </ul>
-              </p>
-            </div>
-          </div>
-        </div>
+      <?php endforeach; ?>
       </div>
     </div>
   </section>
