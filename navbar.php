@@ -19,9 +19,16 @@ include 'modal.php';
                     <li class="nav-item">
                         <a class="nav-link" href="katalog.php">Catalog</a>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="buy.php">Buy Your Glasses!</a>
+                        <?php if (isset($_SESSION['useradmin'])) { ?>
+                            <a class="nav-link" href="buy.php">Detail Pesanan</a>
+                        <?php } ?>
+                        <?php if (isset($_SESSION['username'])) { ?>
+                            <a class="nav-link" href="buy.php">Buy Your Glasses!</a>
+                        <?php } ?>
                     </li>
+                    
                 </ul>
                 <form class="d-flex">
                     <?php if (isset($_SESSION['username'])) {
