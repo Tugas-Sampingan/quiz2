@@ -1,9 +1,6 @@
 <?php
 session_start();
-// cek cookie
-
-setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
-
+setcookie('login[status]', 'false');
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +29,6 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
         <tr>
           <td><label for="password" class="col-sm-2 col-form-label">Password</label></td>
           <td><input type="password" class="form-control" id="password" name="password" required></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <input type="checkbox" class="form-check-input" id="remember" name="remember" value="remember">
-            <label class="form-check-label" for="remember">Remember Me</label>
-          </td>
         </tr>
       </table>
 

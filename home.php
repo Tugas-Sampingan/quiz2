@@ -1,9 +1,20 @@
 <?php
 session_start();
 include 'crud/conn.php';
+
 $best = mysqli_query($conn, "SELECT *, sum(p.jumlah) as jumlah FROM pemesanan p join databarang d on d.kode_barang = p.kode_barang group by d.kode_barang ORDER BY jumlah DESC;");
 
-setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
+if (isset($_SESSION['username'])) {
+  // buat cookie
+  setcookie('login[status]', true); 
+  setcookie('login[nama]', $_SESSION['username']); 
+}
+if (isset($_SESSION['useradmin'])) {
+  // buat cookie
+  setcookie('login[status]', true); 
+  setcookie('login[nama]', $_SESSION['useradmin']); 
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,33 +45,33 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
           <h3 class="lead">Serta menyediakan juga berbagai macam sunglasses yang trendy dan nyaman.</h3>
         </div>
       </div>
-  </section>
-  <br><br>
+    </section>
+    <br><br>
 
-  <section id="bestseller" style="background-color:darksalmon ;">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col text-center" style="margin-top: 60px;">
-          <h1 style="text-align: center;">Best Seller Glasses Of The Year</h1>
+    <section id="bestseller" style="background-color:darksalmon ;">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col text-center" style="margin-top: 60px;">
+            <h1 style="text-align: center;">Best Seller Glasses Of The Year</h1>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <?php
-        $i = 0;
-        foreach ($best as $row) :
-          $i++;
-        ?>
-          <div class="col-md mb-4">
-            <div class="card" style="margin-bottom: 50px;">
-              <img class="card-img-top" src="katalog/<?= $row["gambar"]; ?>" alt="kcmt1" style="display: block;">
-              <div class="card-body">
-                <h3 style="text-align: center;"><?= $row["nama_barang"]; ?></h3>
-                <p class="card-text" style="text-align: justify;"><?= $row["deskripsi"]; ?>
+        <div class="row">
+          <?php
+          $i = 0;
+          foreach ($best as $row) :
+            $i++;
+            ?>
+            <div class="col-md mb-4">
+              <div class="card" style="margin-bottom: 50px;">
+                <img class="card-img-top" src="katalog/<?= $row["gambar"]; ?>" alt="kcmt1" style="display: block;">
+                <div class="card-body">
+                  <h3 style="text-align: center;"><?= $row["nama_barang"]; ?></h3>
+                  <p class="card-text" style="text-align: justify;"><?= $row["deskripsi"]; ?>
                 </p>
               </div>
             </div>
           </div>
-        <?php
+          <?php
           if ($i == 3) {
             exit();
           }

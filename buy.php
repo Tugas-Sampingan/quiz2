@@ -1,14 +1,12 @@
 <?php
 session_start();
 include 'crud/conn.php';
+
 $resul1 = mysqli_query($conn, "SELECT * FROM pemesanan");
 $result = mysqli_query($conn, "SELECT * FROM databarang");
-
-setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
-
 $namaBarang;
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

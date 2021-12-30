@@ -1,6 +1,7 @@
 <?php
 include 'modal.php';
 ?>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: darksalmon;">
         <div class="container-fluid">
@@ -30,8 +31,7 @@ include 'modal.php';
                     
                 </ul>
                 <form class="d-flex">
-                    <?php if (isset($_SESSION['username'])) {
-                    ?>
+                    <?php if (isset($_SESSION['username'])) { ?>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="home.php"><?php echo $_SESSION['username'] ?></a>

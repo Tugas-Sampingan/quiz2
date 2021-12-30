@@ -1,7 +1,9 @@
 <?php
 include 'crud/conn.php';
+
 $selected = mysqli_query($conn, "SELECT * FROM databarang");
 ?>
+
 <!-- MODAL TAMBAH -->
 <div class="modal" id="m_tambah">
   <div class="modal-dialog" style="max-width: 40%;">

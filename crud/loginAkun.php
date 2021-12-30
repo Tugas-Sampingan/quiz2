@@ -7,9 +7,6 @@ $password = $_POST["password"];
 $terdaftar = false;
 $checkEmail;
 
-
-
-//ntar kasih section supaya tau mana admin mana user
 if (isset($_POST['login-user'])) {
     $tabel = mysqli_query($conn, "SELECT * FROM user where email = '$email'");
     $row = mysqli_fetch_array($tabel);
@@ -23,13 +20,9 @@ if (isset($_POST['login-user'])) {
                 $_SESSION['alamat'] = $row['alamat'];
                 $_SESSION['no_telp'] = $row['no_telp'];
 
-                // cek remember me
-                if (isset($_POST["remember"])) {
-                    //buat cookie
-                    $_SESSION["login"] = true;
-                    setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
-                }
                 $terdaftar = true;
+                $_SESSION['login'] == true;
+                setcookie('login', 'true');
 
                 header("location: http://localhost/quiz2/home.php");
                 break;
@@ -49,12 +42,8 @@ if (isset($_POST['login-admin'])) {
             if ($row['password'] == $password) {
                 $_SESSION['useradmin'] = $row['nama_admin'];
 
-                //chek remeber me
-                if (isset($_POST["remember"])) {
-                    //buat cookie
-                    $_SESSION["login"] = true;
-                    setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
-                }
+                $_SESSION['login'] == true;
+                setcookie('login', 'true');
 
                 $terdaftar = true;
                 header("location: http://localhost/quiz2/home.php");

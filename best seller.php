@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'crud/conn.php';
+
 $best = mysqli_query($conn, "SELECT *, sum(p.jumlah) as jumlah FROM pemesanan p join databarang d on d.kode_barang = p.kode_barang group by d.kode_barang ORDER BY jumlah DESC;");
-setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
 ?>
 
 <!DOCTYPE html>
