@@ -4,7 +4,7 @@ session_start();
 
 $email = $_POST["email"];
 $password = $_POST["password"];
-
+$terdaftar = false;
 $checkEmail;
 
 
@@ -29,6 +29,7 @@ if (isset($_POST['login-user'])) {
                     $_SESSION["login"] = true;
                     setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
                 }
+                $terdaftar = true;
 
                 header("location: http://localhost/quiz2/home.php");
                 break;
@@ -39,7 +40,7 @@ if (isset($_POST['login-user'])) {
             break;
         }
     endforeach;
-}
+} 
 if (isset($_POST['login-admin'])) {
     $tabel = mysqli_query($conn, "SELECT * FROM pengelola");
     foreach ($tabel as $row) :
@@ -55,6 +56,7 @@ if (isset($_POST['login-admin'])) {
                     setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
                 }
 
+                $terdaftar = true;
                 header("location: http://localhost/quiz2/home.php");
                 break;
             } else {
@@ -64,4 +66,7 @@ if (isset($_POST['login-admin'])) {
             break;
         }
     endforeach;
+} 
+if ($terdaftar == false){
+    header("location: http://localhost/quiz2/login.php");
 }
