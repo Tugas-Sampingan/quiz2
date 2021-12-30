@@ -72,6 +72,7 @@ $namaBarang;
                 <label for="address" class="col-sm-2 col-form-label">Glasses Type</label>
                 <div class="col-sm-10">
                   <select onchange="val()" class="form-select" id="tipe_barang" aria-label="Default select example" name="tipe_barang" required>
+                    <option value="">-- Pilih --</option>
                     <?php
                     foreach ($result as $row) : ?>
                       <option value="<?= $row['kode_barang'].'; '.$row['harga'] ?>"><?= $row['kode_barang'].' - '.$row['harga'] ?></option>
@@ -93,6 +94,7 @@ $namaBarang;
                 <label for="payment" class="col-sm-2 col-form-label">Payment Method</label>
                 <div class="col-sm-10">
                   <select onchange="val()" class="form-select" name="payment" required>
+                    <option value="">-- Pilih --</option>
                     <option value="Credit Card">Credit Card</option>
                     <option value="Bank Transfer">Bank Transfer</option>
                   </select>

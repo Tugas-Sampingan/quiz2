@@ -183,4 +183,4 @@ $selected = mysqli_query($conn, "SELECT * FROM databarang");
     </div>
   </div>
 <?php endforeach; ?>
-  <!-- END MODAL EDIT -->
+<!-- END MODAL EDIT -->
