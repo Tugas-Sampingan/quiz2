@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'crud/conn.php';
 
 $selected = mysqli_query($conn, "SELECT * FROM databarang");

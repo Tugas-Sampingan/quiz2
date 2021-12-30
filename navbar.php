@@ -23,8 +23,7 @@ include 'modal.php';
                     <li class="nav-item">
                         <?php if (isset($_SESSION['useradmin'])) { ?>
                             <a class="nav-link" href="buy.php">Detail Pesanan</a>
-                        <?php } ?>
-                        <?php if (isset($_SESSION['username'])) { ?>
+                        <?php } else { ?>
                             <a class="nav-link" href="buy.php">Buy Your Glasses!</a>
                         <?php } ?>
                     </li>
