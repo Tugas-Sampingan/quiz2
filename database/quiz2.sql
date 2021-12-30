@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2021 pada 10.51
+-- Waktu pembuatan: 30 Des 2021 pada 06.22
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.26
 
@@ -56,6 +56,7 @@ CREATE TABLE `pemesanan` (
   `id` int(11) NOT NULL,
   `nama_pemesan` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `no_telp` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `kode_barang` varchar(255) NOT NULL,
   `harga` int(255) NOT NULL,
@@ -67,13 +68,15 @@ CREATE TABLE `pemesanan` (
 -- Dumping data untuk tabel `pemesanan`
 --
 
-INSERT INTO `pemesanan` (`id`, `nama_pemesan`, `email`, `alamat`, `kode_barang`, `harga`, `jumlah`, `pembayaran`) VALUES
-(1, 'Brilian', 'brilian@gmail.com', 'asds', 'ELENZE', 250000, 1, 'Bank Transfer'),
-(2, 'Bintang', 'bintang@gmail.com', 'Bandung', 'ELENZE', 250000, 3, 'Bank Transfer'),
-(3, 'Galang', 'galang@gmail.com', 'Jakarta', 'KALA', 100000, 100, 'Bank Transfer'),
-(4, 'Galang', 'galang@gmail.com', 'Jakarta', 'CHARIZ', 109000, 5, 'Bank Transfer'),
-(5, 'Dhan Maul', 'dhan@gmail.com', 'Sulawesi', 'AGNES', 110000, 1, 'Bank Transfer'),
-(6, 'Firenze', 'firenze@gmail.com', 'Tegal', 'AGNES', 110000, 10, 'Bank Transfer');
+INSERT INTO `pemesanan` (`id`, `nama_pemesan`, `email`, `no_telp`, `alamat`, `kode_barang`, `harga`, `jumlah`, `pembayaran`) VALUES
+(1, 'Brilian', 'brilian@gmail.com', '080000000002', 'Bekasi', 'ELENZE', 250000, 1, 'Bank Transfer'),
+(2, 'Bintang', 'bintang@gmail.com', '080000000003', 'Bandung', 'ELENZE', 250000, 3, 'Bank Transfer'),
+(3, 'Galang', 'galang@gmail.com', '080000000005', 'Jakarta', 'KALA', 100000, 19, 'Credit Card'),
+(4, 'Galang', 'galang@gmail.com', '080000000005', 'Jakarta', 'CHARIZ', 109000, 5, 'Credit Card'),
+(5, 'Dhan Maul', 'dhan@gmail.com', '080000000004', 'Sulawesi', 'AGNES', 110000, 1, 'Bank Transfer'),
+(6, 'Firenze', 'firenze@gmail.com', '080000000001', 'Tegal', 'AGNES', 110000, 10, 'Bank Transfer'),
+(7, 'Ariel', 'ariel@gmail.com', '080000000006', 'Depok', 'AGNES', 110000, 5, 'Credit Card'),
+(8, 'Firenze', 'firenze@gmail.com', '080000000001', 'Tegal', 'ELENZE', 250000, 2, 'Credit Card');
 
 -- --------------------------------------------------------
 
@@ -104,6 +107,8 @@ INSERT INTO `pengelola` (`id`, `nama_admin`, `email`, `password`) VALUES
 CREATE TABLE `user` (
   `id` int(100) NOT NULL,
   `nama_user` varchar(255) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `no_telp` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -112,12 +117,13 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `nama_user`, `email`, `password`) VALUES
-(1, 'Firenze', 'firenze@gmail.com', '123'),
-(2, 'Brilian', 'brilian@gmail.com', '123'),
-(3, 'Bintang', 'bintang@gmail.com', '123'),
-(4, 'Dhan Maul', 'dhan@gmail.com', '123'),
-(5, 'Galang', 'galang@gmail.com', '123');
+INSERT INTO `user` (`id`, `nama_user`, `alamat`, `no_telp`, `email`, `password`) VALUES
+(1, 'Firenze', 'Tegal', '080000000001', 'firenze@gmail.com', '123'),
+(2, 'Brilian', 'Bekasi', '080000000002', 'brilian@gmail.com', '123'),
+(3, 'Bintang', 'Bandung', '080000000003', 'bintang@gmail.com', '123'),
+(4, 'Dhan Maul', 'Sulawesi', '080000000004', 'dhan@gmail.com', '123'),
+(5, 'Galang', 'Jakarta', '080000000005', 'galang@gmail.com', '123'),
+(6, 'Ariel', 'Depok', '080000000006', 'ariel@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -156,19 +162,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengelola`
 --
 ALTER TABLE `pengelola`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

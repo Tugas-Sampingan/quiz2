@@ -43,21 +43,28 @@ $namaBarang;
               <div class="form-group row">
                 <label for="nama" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                  <input type="text" name="nama" class="form-control" placeholder="Your Name">
+                  <input type="text" name="nama" class="form-control" value="<?= $_SESSION['username'] ?>" readonly>
                 </div>
               </div>
               <br>
               <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="text" name="email" class="form-control" placeholder="Your Email">
+                  <input type="text" name="email" class="form-control" value="<?= $_SESSION['email'] ?>" readonly>
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="no_telp" class="col-sm-2 col-form-label">No Telp</label>
+                <div class="col-sm-10">
+                  <input type="text" name="no_telp" class="form-control" value="<?= $_SESSION['no_telp'] ?>" readonly>
                 </div>
               </div>
               <br>
               <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
-                  <textarea name="address" class="form-control" placeholder="Type your address here"></textarea>
+                  <textarea name="address" class="form-control" placeholder="Type your address here"><?= $_SESSION['alamat'] ?></textarea>
                 </div>
               </div>
               <br>
@@ -68,18 +75,11 @@ $namaBarang;
                     <option selected>Pilih Barang</option>
                     <?php
                     foreach ($result as $row) : ?>
-                      <option value="<?= $row['kode_barang'] ?>"><?= $row['kode_barang'] ?></option>
+                      <option value="<?= $row['kode_barang'].'; '.$row['harga'] ?>"><?= $row['kode_barang'].' - '.$row['harga'] ?></option>
                     <?php
                     endforeach;
                     ?>
                   </select>
-                </div>
-              </div>
-              <br>
-              <div class="form-group row">
-                <label for="harga" class="col-sm-2 col-form-label">Harga</label>
-                <div class="col-sm-10">
-                  <input id="harga_barang" name="harga" class="form-control" value="" readonly>
                 </div>
               </div>
               <br>
@@ -193,7 +193,7 @@ $namaBarang;
     if (tipeBarang == "AGNES") {
       document.getElementById("harga_barang").value = 110000;
     } else if (tipeBarang == "CHARIZ") {
-      document.getElementById("harga_barang").value = 110000;
+      document.getElementById("harga_barang").value = 109000;
     } else if (tipeBarang == "ELENZE") {
       document.getElementById("harga_barang").value = 250000;
     } else if (tipeBarang == "KALA") {
@@ -201,7 +201,6 @@ $namaBarang;
     } else {
       document.getElementById("harga_barang").value = 90000;
     }
-
   }
 </script>
 

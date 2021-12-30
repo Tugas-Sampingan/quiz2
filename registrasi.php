@@ -20,6 +20,14 @@
                     <input type="text" class="form-control" id="nama" placeholder="Firenze" name="nama" required>
                 </div>
                 <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" class="form-control" id="alamat" placeholder="Bandung" name="alamat" required>
+                </div>
+                <div class="form-group">
+                    <label for="no_telp">No Telp</label>
+                    <input type="text" class="form-control" id="no_telp" placeholder="Firenze" name="no_telp" required>
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="firenze@gmail.com" name="email" required>
                 </div>

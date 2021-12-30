@@ -20,6 +20,9 @@ if (isset($_POST['login-user'])) {
             $checkEmail = $row["email"];
             if ($row['password'] == $password) {
                 $_SESSION['username'] = $row['nama_user'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['alamat'] = $row['alamat'];
+                $_SESSION['no_telp'] = $row['no_telp'];
 
                 // cek remember me
                 if (isset($_POST["remember"])) {
