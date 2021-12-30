@@ -27,11 +27,11 @@ setcookie('login', $_SESSION["login"] = true, time() + 600); //10 menit
       <table>
         <tr>
           <td><label for="email" class="col-sm-2 col-form-label">Email</label></td>
-          <td><input type="email" class="form-control" id="email" name="email"></td>
+          <td><input type="email" class="form-control" id="email" name="email" required></td>
         </tr>
         <tr>
           <td><label for="password" class="col-sm-2 col-form-label">Password</label></td>
-          <td><input type="password" class="form-control" id="password" name="password"></td>
+          <td><input type="password" class="form-control" id="password" name="password" required></td>
         </tr>
         <tr>
           <td></td>

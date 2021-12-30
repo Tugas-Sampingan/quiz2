@@ -64,15 +64,14 @@ $namaBarang;
               <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
-                  <textarea name="address" class="form-control" placeholder="Type your address here"><?= $_SESSION['alamat'] ?></textarea>
+                  <textarea name="address" class="form-control" placeholder="Type your address here" required><?= $_SESSION['alamat'] ?></textarea>
                 </div>
               </div>
               <br>
               <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Glasses Type</label>
                 <div class="col-sm-10">
-                  <select onchange="val()" class="form-select" id="tipe_barang" aria-label="Default select example" name="tipe_barang">
-                    <option selected>Pilih Barang</option>
+                  <select onchange="val()" class="form-select" id="tipe_barang" aria-label="Default select example" name="tipe_barang" required>
                     <?php
                     foreach ($result as $row) : ?>
                       <option value="<?= $row['kode_barang'].'; '.$row['harga'] ?>"><?= $row['kode_barang'].' - '.$row['harga'] ?></option>
@@ -86,14 +85,14 @@ $namaBarang;
               <div class="form-group row">
                 <label for="address" class="col-sm-2 col-form-label">Jumlah</label>
                 <div class="col-sm-10">
-                  <input type="number" min="1" max="5" name="jumlah" name="jumlah">
+                  <input type="number" min="1" max="5" name="jumlah" name="jumlah" required>
                 </div>
               </div>
               <br>
               <div class="form-group row">
                 <label for="payment" class="col-sm-2 col-form-label">Payment Method</label>
                 <div class="col-sm-10">
-                  <select name="payment" class="form-control">
+                  <select onchange="val()" class="form-select" name="payment" required>
                     <option value="Credit Card">Credit Card</option>
                     <option value="Bank Transfer">Bank Transfer</option>
                   </select>
